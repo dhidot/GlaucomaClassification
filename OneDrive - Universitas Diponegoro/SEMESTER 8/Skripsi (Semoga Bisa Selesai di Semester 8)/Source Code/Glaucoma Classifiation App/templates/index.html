@@ -1,0 +1,25 @@
+{% extends "base.html" %} {% block content %}
+
+<div>
+    <div id="judul">
+        <h1>Tentang aplikasi ini</h1>
+    </div>
+    <div class="card" id="cardHome">
+        <div class="card-body text-center">
+            <p id="paragraf">
+                Aplikasi ini dikembangkan untuk melakukan klasifikasi glaukoma dengan metode <em>transfer
+                    learning</em>menggunakan arsitektur <em>Inception-V3</em>. Dengan pendekatan ini, aplikasi
+                dapat mengenali pola dan ciri khas glaukoma dengan tingkat akurasi yang cukup tinggi, memungkinkan
+                diagnosis dini untuk mencegah kerusakan yang lebih parah.
+            </p>
+        </div>
+    </div>
+    <div class="example-images">
+        <figure id="figure">
+            <img src="static\img\glaucoma.jpeg" alt="Contoh Data Normal">
+            <figcaption class="caption">Perbedaan Kondisi Mata Normal dan Glaukoma</figcaption>
+        </figure>
+    </div>
+</div>
+
+{% endblock %}

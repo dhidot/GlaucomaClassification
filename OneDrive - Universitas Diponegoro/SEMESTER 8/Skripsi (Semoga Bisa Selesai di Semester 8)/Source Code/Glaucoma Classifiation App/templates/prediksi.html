@@ -1,0 +1,26 @@
+{% extends "base.html" %} {% block content %}
+<div>
+    <div class="card">
+        <div class="card-body text-center">
+            <form id="upload-file" method="post" enctype="multipart/form-data">
+                <div class="drop-zone">
+                    <span class="drop-zone__prompt">Seret file atau Klik untuk mengunggah file</span>
+                    <input type="file" name="file" class="drop-zone__input" accept=".png, .jpg, .jpeg">
+                </div>
+            </form>
+
+            <div class="button-section" style="display:none;">
+                <div>
+                    <button type="button" class="btn btn-primary btn-lg " id="btn-predict">Lakukan Prediksi</button>
+                </div>
+            </div>
+
+            <div class="loader" style="display:none;"></div>
+
+            <h3 id="result">
+                <span> </span>
+            </h3>
+        </div>
+    </div>
+</div>
+{% endblock %}
