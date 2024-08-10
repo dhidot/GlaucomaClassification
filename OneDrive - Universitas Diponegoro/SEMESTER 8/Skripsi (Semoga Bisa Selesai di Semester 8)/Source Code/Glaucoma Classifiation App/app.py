@@ -1,19 +1,26 @@
-from flask import Flask, render_template, request, redirect, url_for
+import tensorflow as tf
+import os
 import numpy as np
-from PIL import Image
 from keras.preprocessing import image as keras_image
 from keras.models import load_model
-from werkzeug.utils import secure_filename
-from gevent.pywsgi import WSGIServer
+from PIL import Image
+from flask import Flask, render_template, request, redirect, url_for
+from dotenv import load_dotenv
+from flask_cors import CORS
+
+# Load the environment variables
+load_dotenv()
 
 app = Flask(__name__)
+CORS(app) # Enable CORS for all routes and origins
+
+# Konfigurasi FLASK_DEBUG pada environment variables
+app.config['DEBUG'] = os.environ.get('FLASK_DEBUG')
 
 # Load saved model
-bestModel = load_model('models\model_16_0.0001_60.h5')
+bestModel = load_model('models/model_16_0.0001_60.h5')
 
 # Load and preprocess image
-
-
 def preproccessImage(imagePath):
     img = Image.open(imagePath).convert('RGB')
     img = img.resize((299, 299))
@@ -48,6 +55,10 @@ def index():
 def prediksi():
     return render_template('prediksi.html')
 
+@app.route('/help', methods=['GET'])
+def help():
+    return render_template('help.html')
+
 
 @app.route('/predict', methods=['GET', 'POST'])
 def upload():
@@ -64,7 +75,4 @@ def upload():
 
 
 if __name__ == '__main__':
-    # app.run()
-    # Serve the app with gevent
-    http_server = WSGIServer(('', 5000), app)
-    http_server.serve_forever()
+    app.run(debug=False)
