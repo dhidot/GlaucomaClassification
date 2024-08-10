@@ -1,0 +1,22 @@
+{% extends "base.html" %} {% block content %}
+<div id="judul">
+    <h1>How to use this app</h1>
+</div>
+<div class="card" id="cardHome">
+    <div class="card-body text-center">
+        <p id="paragraf">
+            Unduh salah satu gambar mata yang ingin Anda prediksi. Pastikan gambar yang Anda unggah adalah gambar mata
+            yang sesuai dengan contoh dibawah ini. Setelah itu, klik tombol "Lakukan Prediksi" untuk memulai proses
+            prediksi. Gambar testing dapat diunduh <a target="_blank"
+                href="https://drive.google.com/drive/folders/1LDn-ZzFk2OK-kz_x32C-RaccC9fZK9Dz?usp=sharing"><b>disini</b></a>
+        </p>
+    </div>
+</div>
+<div class="example-images">
+    <figure id="figure">
+        <img src="static\img\Normal.jpg" alt="Contoh Data Normal">
+        <figcaption class="caption">Contoh gambar mata yang di unggah</figcaption>
+    </figure>
+</div>
+
+{% endblock %}
